@@ -22,18 +22,17 @@ print(total_cost)
 
 average_speed = 60
 hours_available = 4
-total_distance = ??? # calculate here
-print(???)  # print the result
+total_distance = average_speed * hours_available
+print(total_distance)
 
 # ---------------------------------------------------------------------
 # Exercise 2 - Pizza Slices
 # A pizza is cut into 8 equal slices. Calculate and print how many
 # slices each person will get if there are 4 people sharing the pizza.
-
-pizza_slices = ???
-people = ???
-slices_per_person = ???
-print(???)
+pizza_slices = 8
+people = 4
+slices_per_person = pizza_slices / people
+print(slices_per_person)
 
 # ---------------------------------------------------------------------
 # Exercise 3 - Shopping Discount
@@ -45,6 +44,10 @@ print(???)
 # print the result.
 # The formula to count the discounted price:
 # multiply the original price by the discount percentage and divide by 100.
+original_price = 80
+discount_percentage = 20
+final_price = original_price * (100 - discount_percentage) / 100
+print(final_price)
 
 
 # ---------------------------------------------------------------------
@@ -55,6 +58,9 @@ print(???)
 # To convert Celsis to Fahrenheit you need to multiply
 # the temperature in Celsius by 9/5 and add 32 to the result
 
+celsius_temperature = 25
+fahrenheit_temperature = celsius_temperature * 9/5 + 32
+print(fahrenheit_temperature)
 
 # ---------------------------------------------------------------------
 # Exercise 5 - Gardening
@@ -63,6 +69,11 @@ print(???)
 # and print the area of the flowerbed.
 # To calculate the area of a circle, multiply π (~3.141) with the square of
 # the circle's radius.
+import math
+
+radius = 3.5
+area = math.pi * radius ** 2
+print(area)
 
 
 # ---------------------------------------------------------------------
@@ -73,6 +84,9 @@ print(???)
 # Your task is to convert the float temperature to an integer
 # temperature for display.
 # As an example, if the temperature is 24.8ºC, you need to print 24.
+temperature = 24.8
+rounded_temperature = round(temperature)
+print(rounded_temperature)
 
 
 # ---------------------------------------------------------------------
@@ -81,6 +95,12 @@ print(???)
 # want to distribute them evenly into 5 cookies. Calculate and
 # print the number of chocolate chips in each cookie and the
 # remaining chips.
+chocolate_chips = 17
+cookies = 5
+chips_per_cookie = chocolate_chips // cookies
+remaining_chips = chocolate_chips % cookies
+print(chips_per_cookie)
+print(remaining_chips)
 
 
 # ---------------------------------------------------------------------
@@ -99,13 +119,13 @@ print(???)
 #
 # For the values provided we are expecting a total earning of 750000,
 # however the code is not working correctly. Can you fix it?
-1st_event_participants = 250
-2nd_event_participants = 500
-ticket_$ = 1000
+# Corrected code to calculate total earnings from two events
+event1_participants = 250
+event2_participants = 500
+ticket_price = 1000
 
-total_earnings = (1st_event_total + 2nd_event_total) * ticket_$
+total_earnings = (event1_participants + event2_participants) * ticket_price
 print(total_earnings)
-
 
 # ---------------------------------------------------------------------
 # Exercise 9 - Fix the Code - Student age mean
@@ -129,7 +149,7 @@ student_1_age = 15
 student_2_age = 17
 student_3_age = 13
 
-students_age_mean = student_1_age + student_2_age + student_3_age / 3
+students_mean_age = (student_1_age + student_2_age + student_3_age) / 3
 print(students_mean_age)
 
 # ---------------------------------------------------------------------
@@ -152,8 +172,12 @@ print(students_mean_age)
 number = 1597
 
 digit_1 = number % 10
-number = number // 10
-
+number //= 10
+digit_2 = number % 10
+number //= 10
+digit_3 = number % 10
+number //= 10
+digit_4 = number % 10
 # print(digit_1) # will print 7
 # print(number)  # will print 159
 
