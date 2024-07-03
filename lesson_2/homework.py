@@ -145,7 +145,7 @@ print(total_earnings)
 #
 # For these ages, we expect an age mean of 15.0, but your code
 # is returning 36.3. Fix the code to print the correct value.
-student_1_age = 15
+student_1_age = 14
 student_2_age = 17
 student_3_age = 13
 
