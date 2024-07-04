@@ -10,6 +10,8 @@
 temperature = int(input("Enter the temperature in Fahrenheit: "))
 
 # <Your code here>
+if temperature > 85:
+    print("Hot day ahead!")
 
 # ---------------------------------------------------------------------
 # Exercise 2: Grade Classifier
@@ -20,6 +22,12 @@ temperature = int(input("Enter the temperature in Fahrenheit: "))
 # you need to convert it so you can use the value as a number.
 
 # <Your code here>
+score = int(input("Enter the student's score: "))
+
+if score >= 50:
+    print("Pass")
+else:
+    print("Fail")
 
 # ---------------------------------------------------------------------
 # Exercise 3: Scholarship Eligibility
@@ -37,6 +45,12 @@ temperature = int(input("Enter the temperature in Fahrenheit: "))
 gpa = float(input("Enter your GPA: "))
 
 # <Your code here>
+if gpa >= 3.5:
+    print("Congratulations, you're eligible for a scholarship!")
+elif 3.0 <= gpa < 3.5:
+    print("You're on the waiting list.")
+else:
+    print("Keep up the good work.")
 
 # ---------------------------------------------------------------------
 # Exercise 4: Shopping Discount
@@ -47,9 +61,16 @@ gpa = float(input("Enter your GPA: "))
 original_price = float(input("Enter product original price: "))
 discount_percentage = float(input("Enter discount percentage: "))
 
-discounted_price = # calculate the discounted price here
+discounted_price = original_price * (1 - discount_percentage / 100)
 
 # <Your code here>
+
+
+
+if discounted_price < 50:
+    print("Great deal!")
+else:
+    print("Might want to wait for a better offer.")
 
 # ---------------------------------------------------------------------
 # Exercise 5: Movie Night Decision
@@ -59,6 +80,13 @@ discounted_price = # calculate the discounted price here
 # print "Let's just pick one."
 
 # <Your code here>
+rating1 = float(input("Enter the rating for the first movie: "))
+rating2 = float(input("Enter the rating for the second movie: "))
+
+if rating1 > 7 and rating2 > 7:
+    print("Let's watch both!")
+else:
+    print("Let's just pick one.")
 
 # ---------------------------------------------------------------------
 # Exercise 6: Restaurant Recommendation
@@ -69,6 +97,15 @@ discounted_price = # calculate the discounted price here
 # For other cases, recommend a casual dining place.
 
 # <Your code here>
+mood = input("Are you happy or sad? ").lower()
+hunger_level = input("Is your hunger level high or low? ").lower()
+
+if mood == "happy" and hunger_level == "high":
+    print("Recommend a fancy restaurant.")
+elif mood == "sad" and hunger_level == "high":
+    print("Recommend comfort food.")
+else:
+    print("Recommend a casual dining place.")
 
 # ---------------------------------------------------------------------
 # Exercise 7: Exercise 7: Tax Bracket Calculator
@@ -88,7 +125,17 @@ annual_income = float(input("Enter your annual income: "))
 # <Your code here>
 
 # Print tax amount
+if annual_income < 40000:
+    tax_rate = 0.10
+elif 40000 <= annual_income <= 100000:
+    tax_rate = 0.20
+else:
+    tax_rate = 0.30
+
+tax_amount = annual_income * tax_rate
+
 print(f"Your tax amount is ${tax_amount}")
+
 
 # ---------------------------------------------------------------------
 # Exercise 8: Ticket Pricing System
@@ -101,6 +148,16 @@ print(f"Your tax amount is ${tax_amount}")
 # Print the calculated ticket price for the given age.
 
 # <Your code here>
+age = int(input("Enter your age: "))
+
+if 3 <= age <= 12:
+    ticket_price = 10
+elif 13 <= age <= 64:
+    ticket_price = 20
+else:
+    ticket_price = 15
+
+print(f"The ticket price is ${ticket_price}")
 
 # ---------------------------------------------------------------------
 # Exercise 9: Password Strength Checker
@@ -116,6 +173,12 @@ print(f"Your tax amount is ${tax_amount}")
 password = input("Enter your password: ")
 
 # <Your code here>
+if len(password) < 8:
+    print("Weak password.")
+elif 8 <= len(password) <= 12:
+    print("Moderate password.")
+else:
+    print("Strong password.")
 
 # ---------------------------------------------------------------------
 # CHALLENGE (OPTIONAL): Course Enrollment Eligibility
@@ -151,6 +214,8 @@ password = input("Enter your password: ")
 #   grades "C" or "D" are eligible.
 
 # Print either "You are eligible to enroll." or "You are not eligible to enroll."
+
+# <Your code here>]
 course_code = input("Enter the course code: ")
 student_grade = input("Enter your grade: ")
 
@@ -159,11 +224,23 @@ course_code = course_code.upper()
 student_grade = student_grade.upper()
 
 # Extract the last three characters of the course code (use string slicing)
-course_suffix =  # your code here
+course_suffix = course_code[-3:]
 
 # Check course code and grade to determine eligibility
 if course_suffix == "101":
-    ...  # <Your code here>
+    if student_grade in ["A", "B"]:
+        print("You are eligible to enroll.")
+    else:
+        print("You are not eligible to enroll.")
 elif course_suffix == "202":
-    ...  # <Your code here>
-# <Your code here>
+    if student_grade in ["B", "C"]:
+        print("You are eligible to enroll.")
+    else:
+        print("You are not eligible to enroll.")
+elif course_suffix == "303":
+    if student_grade in ["C", "D"]:
+        print("You are eligible to enroll.")
+    else:
+        print("You are not eligible to enroll.")
+else:
+    print("Invalid course code.")
