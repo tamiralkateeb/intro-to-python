@@ -1,173 +1,217 @@
-# Homework: Classes
-# Read carefully until the end before you start solving the exercises.
-
-# Practice the Basics
+# HOMEWORK: Classes
 
 # Basic Class
+class HouseForSale:
+    pass
 
-# - Create an empty class HouseForSale
-# - Create two instances.
-# - Add number_of_rooms and price as instance attributes.
-# - Create print statements that show the attribute values for the instances.
 
-# ----------------------------------------------------------------------------------------------------------------------
+# Create two instances
+house1 = HouseForSale()
+house2 = HouseForSale()
+
+# Add instance attributes
+house1.number_of_rooms = 3
+house1.price = 250000
+house2.number_of_rooms = 4
+house2.price = 300000
+
+# Print statements
+print(f"House 1: {house1.number_of_rooms} rooms, ${house1.price}")
+print(f"House 2: {house2.number_of_rooms} rooms, ${house2.price}")
+
 
 # Instance Methods
+class Computer:
+    def turn_on(self):
+        print("Computer has Turned On")
 
-# - Create a Computer class.
-# - Create method:
-#   - turn_on that prints Computer has Turned On
-#   - turn_off that prints Computer has Turned Off
-# - Create an instance of the Computer class then call each method.
+    def turn_off(self):
+        print("Computer has Turned Off")
 
-# ----------------------------------------------------------------------------------------------------------------------
+
+# Create an instance and call methods
+my_computer = Computer()
+my_computer.turn_on()
+my_computer.turn_off()
+
 
 # Constructor with Parameters
+class Dog:
+    def __init__(self, name):
+        self.name = name
 
-# - Create a Dog class.
-# - Dog should have a constructor with a name parameter.
-# - Dog should have a method say_name that prints the name of the dog.
+    def say_name(self):
+        print(self.name)
 
-# ----------------------------------------------------------------------------------------------------------------------
+
+# Create an instance and call method
+my_dog = Dog("Buddy")
+my_dog.say_name()
+
 
 # Inheritance
+class Animal:
+    def __init__(self, name=""):
+        self.name = name
 
-# Create the classes that would make the following code possible, with the caveat that
-# both Dog and Cat must inherit from Animal.
+    def say_name(self):
+        if self.name:
+            print(self.name)
+        else:
+            print("I don't have a name yet.")
 
-# animal = Animal()
-# animal.say_name()   # Prints: I don't have a name yet.
-# animal.speak()      # Prints: I can't speak!
-#
-# dog = Dog('Fido')
-# dog.say_name()      # Prints: Fido
-# dog.speak()         # Prints: Woof!
-#
-# cat = Cat('Max')
-# cat.say_name()      # Prints: Max
-# cat.speak()         # Prints: Meow!
+    def speak(self):
+        print("I can't speak!")
 
-# ----------------------------------------------------------------------------------------------------------------------
 
-# Exercises
+class Dog(Animal):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def speak(self):
+        print("Woof!")
+
+
+class Cat(Animal):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def speak(self):
+        print("Meow!")
+
+
+# Create instances and test
+animal = Animal()
+animal.say_name()  # Prints: I don't have a name yet.
+animal.speak()  # Prints: I can't speak!
+
+dog = Dog('Fido')
+dog.say_name()  # Prints: Fido
+dog.speak()  # Prints: Woof!
+
+cat = Cat('Max')
+cat.say_name()  # Prints: Max
+cat.speak()  # Prints: Meow!
+
+
 # Exercise 1: Books and Authors
+class Book:
+    pass
 
-# Create an empty class called Book. Then create three instances.
-# Add the following attributes for each of the instances: title, author, and publication_year.
-# Create print statements to display the attributes of each one of the instances.
 
-# Pre-code:
-# class Book:
-#    pass
-#
-# book1 = Book()
-# book1.t??? = 'To Kill a Mockingbird'
-# book1.a??? = 'Harper Lee'
-# book1.p??? = 1960
+book1 = Book()
+book1.title = 'To Kill a Mockingbird'
+book1.author = 'Harper Lee'
+book1.publication_year = 1960
 
-# Your code here
+book2 = Book()
+book2.title = '1984'
+book2.author = 'George Orwell'
+book2.publication_year = 1949
 
-# ----------------------------------------------------------------------------------------------------------------------
+book3 = Book()
+book3.title = 'Moby Dick'
+book3.author = 'Herman Melville'
+book3.publication_year = 1851
 
-# Exercise 2. Vehicle and Types of Vehicles
+# Print statements
+print(f"{book1.title} by {book1.author}, published in {book1.publication_year}")
+print(f"{book2.title} by {book2.author}, published in {book2.publication_year}")
+print(f"{book3.title} by {book3.author}, published in {book3.publication_year}")
 
-# Create a Vehicle class.
-# - Its constructor should take the name and type of the vehicle and store them as instance attributes.
-# - This Vehicle class should also have a show_type() instance method that prints out the
-#   message: "<NAME_OF_VEHICLE> is a <TYPE_OF_VEHICLE>"
-# - Create Car and Bike classes that inherit from Vehicle.
-# - Create instances of Car and Bike and make them show their types.
 
-# ----------------------------------------------------------------------------------------------------------------------
+# Exercise 2: Vehicle and Types of Vehicles
+class Vehicle:
+    def __init__(self, name, vehicle_type):
+        self.name = name
+        self.vehicle_type = vehicle_type
 
-# Exercise 3. Spot and correct the mistakes
+    def show_type(self):
+        print(f"{self.name} is a {self.vehicle_type}")
 
-# - You are given a task to create a Car class.
-# - Each car will have attributes for model and year.
-# - Unfortunately, the given code below contains several mistakes.
-# - Your task is to find and correct these mistakes to make the code run successfully.
-# - Please include a comment in the code explaining the corrections you made and why.
 
-# Pre-code
-# class Car:
-#    def __init__(model, year):
-#        self = model
-#        year = year
-#
-# my_car = Car("Toyota")
-# print(my_car.model)
-# print(my_car.year)
+class Car(Vehicle):
+    def __init__(self, name):
+        super().__init__(name, "Car")
 
-# ----------------------------------------------------------------------------------------------------------------------
 
-# Exercise 4. SmartHome with Constructor
+class Bike(Vehicle):
+    def __init__(self, name):
+        super().__init__(name, "Bike")
 
-# Create a SmartHome class that has a constructor __init__ and a send_notification() method.
-#
-# The constructor should initialize the attributes:
-# - home_name
-# - location
-# - number_of_devices
-#
-# send_notification() should print a notification including the home_name and location.
 
-# Create instances for the following:
-# Home Name      Location      Number of Devices
-# Villa Rosa     New York      15 devices
-# Green House    California    10 devices
-# Sea View       Florida       20 devices
+# Create instances and show types
+car = Car("Toyota")
+bike = Bike("Yamaha")
 
-# Call the send_notification() method for each instance, 
-# passing a message reminding to turn off the lights.
+car.show_type()  # Prints: Toyota is a Car
+bike.show_type()  # Prints: Yamaha is a Bike
 
-# ----------------------------------------------------------------------------------------------------------------------
 
-# Exercise 5. Inheritance. Spot and correct mistakes
+# Exercise 3: Spot and Correct the Mistakes
+class Car:
+    def __init__(self, model, year):
+        self.model = model  # Corrected: 'self.model = model'
+        self.year = year  # Corrected: 'self.year = year'
 
-# You should have the following hierarchy of classes:
 
- # Animal
- # │
- # ├── Mammal
- # │
- # ├── Bird
- # │
- # └── Fish
+my_car = Car("Toyota", 2021)  # Corrected: Added 'year' parameter
+print(my_car.model)
+print(my_car.year)
 
-# Each class has the following attributes:
 
-# - Animal name
-# - Mammal name, age, number of legs
-# - Bird name, age, can fly or not
-# - Fish name, age, number of fins
+# Exercise 4: SmartHome with Constructor
+class SmartHome:
+    def __init__(self, home_name, location, number_of_devices):
+        self.home_name = home_name
+        self.location = location
+        self.number_of_devices = number_of_devices
 
-# But, the provided code for these classes and their instances has several mistakes
-# related to hierarchy, class attributes, and instance creation.
+    def send_notification(self, message):
+        print(f"Notification for {self.home_name} in {self.location}: {message}")
 
-# Find and correct these mistakes to make the code work properly.
-# Leave a comment in the code explaining what the problems were and why it wouldn't work.
-# There are seven mistakes in the pre-code.
 
-# Pre-code
-# class Animal:
-#     def __init__(self, name, age):
-#         name = name
-#         age = age
+# Create instances
+villa_rosa = SmartHome("Villa Rosa", "New York", 15)
+green_house = SmartHome("Green House", "California", 10)
+sea_view = SmartHome("Sea View", "Florida", 20)
 
-# class Mammal(Animals):
-#     def __init__(self, name, age, num_legs):
-#         super().__init__(name, age)
-#         self.num_legs = num_legs
+# Send notifications
+villa_rosa.send_notification("Please turn off the lights.")
+green_house.send_notification("Please turn off the lights.")
+sea_view.send_notification("Please turn off the lights.")
 
-# class Bird(Animal):
-#     def __init__(self, can_fly):
-#         self.can_fly = can_fly
 
-# class Fish(Mammal):
-#     def __init__(self, name, age, num_fins):
-#         super().__init__(name, age)
-#         self.num_fins = num_fins
+# Exercise 5: Inheritance. Spot and Correct Mistakes
+class Animal:
+    def __init__(self, name, age):
+        self.name = name  # Corrected: 'self.name = name'
+        self.age = age  # Corrected: 'self.age = age'
 
-# tiger = Mammal('Tiger', 5, 4)
-# sparrow = Bird(True)
-# goldfish = Fish('Goldfish', 2, 'Many')
+
+class Mammal(Animal):  # Corrected: Should inherit from 'Animal'
+    def __init__(self, name, age, num_legs):
+        super().__init__(name, age)
+        self.num_legs = num_legs
+
+
+class Bird(Animal):
+    def __init__(self, name, age, can_fly):  # Corrected: Added 'name' and 'age' parameters
+        super().__init__(name, age)  # Corrected: Call super().__init__(name, age)
+        self.can_fly = can_fly
+
+
+class Fish(Animal):  # Corrected: Should inherit from 'Animal'
+    def __init__(self, name, age, num_fins):
+        super().__init__(name, age)
+        self.num_fins = num_fins
+
+
+# Corrected: Create instances with the right parameters
+tiger = Mammal('Tiger', 5, 4)
+sparrow = Bird('Sparrow', 2, True)
+goldfish = Fish('Goldfish', 1, 2)
+
+print(f"{tiger.name}, {tiger.age} years old, {tiger.num_legs} legs")
+print(f"{sparrow.name}, {sparrow.age} years old, can fly: {sparrow.can_fly}")
+print(f"{goldfish.name}, {goldfish.age} years old, {goldfish.num_fins} fins")
